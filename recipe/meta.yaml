@@ -22,6 +22,7 @@ requirements:
     - toolchain
     - perl 5.22.2.1  # [not win]
     - cmake  # [win]
+    - {{ compiler('fortran') }}
 
 test:
   requires:
