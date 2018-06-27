@@ -28,7 +28,7 @@ test:
   requires:
     - python {{ os.environ.get('PY_VER', '') + '*' }}  # [win]
   commands:
-    - strings ${PREFIX}/lib/libfftw3.a | grep dfftw
+    - strings ${PREFIX}/lib/libfftw3.a \| grep dfftw
     - exit $(test -f ${PREFIX}/lib/libfftw3f.a)          # [not win]
     - exit $(test -f ${PREFIX}/lib/libfftw3.a)           # [not win]
     - exit $(test -f ${PREFIX}/lib/libfftw3l.a)          # [not win]
