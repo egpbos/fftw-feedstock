@@ -31,7 +31,9 @@ conda build /home/conda/recipe_root -m /home/conda/feedstock_root/.ci_support/${
 upload_or_check_non_existence /home/conda/recipe_root conda-forge --channel=main -m /home/conda/feedstock_root/.ci_support/${CONFIG}.yaml
 
 ls
-ls lib
-strings lib/libfftw3.* | grep fftw_plan
+ls *
+ls */*
+ls */*/*
+strings {*,*/*,*/*/*}/libfftw3.* | grep fftw_plan
 
 touch "/home/conda/feedstock_root/build_artifacts/conda-forge-build-done-${CONFIG}"
