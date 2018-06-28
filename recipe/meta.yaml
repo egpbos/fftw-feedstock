@@ -21,8 +21,8 @@ requirements:
     - python         # [win]
     - cmake          # [win]
     - perl 5.22.2.1  # [not win]
-    - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('fortran') }}  # [not win]
 
 test:
   requires:
