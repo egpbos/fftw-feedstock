@@ -28,14 +28,16 @@ test:
   requires:
     - python {{ os.environ.get('PY_VER', '') + '*' }}  # [win]
   commands:
-    - ls ${PREFIX}/lib # [not win]
-    - strings ${PREFIX}/lib/libfftw3.a # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3f.a)          # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3.a)           # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3l.a)          # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3f_threads.a)  # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3_threads.a)   # [not win]
-    - exit $(test -f ${PREFIX}/lib/libfftw3l_threads.a)  # [not win]
+    # Verify library contains Fortran symbols
+    - |                                                   # [not win]
+      strings ${PREFIX}/lib/libfftw3.a | grep -q dfftw    # [not win]
+    # Verify existence of library files
+    - exit $(test -f ${PREFIX}/lib/libfftw3f.a)           # [not win]
+    - exit $(test -f ${PREFIX}/lib/libfftw3.a)            # [not win]
+    - exit $(test -f ${PREFIX}/lib/libfftw3l.a)           # [not win]
+    - exit $(test -f ${PREFIX}/lib/libfftw3f_threads.a)   # [not win]
+    - exit $(test -f ${PREFIX}/lib/libfftw3_threads.a)    # [not win]
+    - exit $(test -f ${PREFIX}/lib/libfftw3l_threads.a)   # [not win]
 
     # Verify headers are installed
     - test -f ${PREFIX}/include/fftw3.h                  # [not win]
