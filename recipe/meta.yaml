@@ -11,14 +11,9 @@ source:
 
 build:
   number: 0
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
-  skip: true  # [win and py35]
 
 requirements:
   build:
-    - python         # [win]
     - cmake          # [win]
     - perl 5.22.2.1  # [not win]
     - {{ compiler('c') }}        # [not win]
@@ -27,8 +22,6 @@ requirements:
   run:
 
 test:
-  requires:
-    - python {{ os.environ.get('PY_VER', '') + '*' }}  # [win]
   commands:
     # Verify library contains Fortran symbols
     - |                                                  # [not win]
