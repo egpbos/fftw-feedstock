@@ -23,6 +23,8 @@ requirements:
     - perl 5.22.2.1  # [not win]
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('fortran') }}  # [not win]
+  host:
+  run:
 
 test:
   requires:
