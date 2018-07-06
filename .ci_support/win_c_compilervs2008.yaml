@@ -2,3 +2,8 @@ c_compiler:
 - vs2008
 fortran_compiler:
 - flang
+perl:
+- '5.26'
+pin_run_as_build:
+  perl:
+    max_pin: x.x
